@@ -15,10 +15,11 @@ def home_page(request):
 
 def category_page(request, pk):
     category = CategoryProduct.objects.get(id=pk)
-    products = Product.objects.filter(product_category=category)
+    products = Product.objects.filter(product_category=category).all()
+    # .first()//.all()
     # Передаем данные на фронт
-    context = {'products': products}
-    return render(request, 'category.html', context)
+    context = {'products': products, 'category': category}
+    return render(request, 'category_product.html', context)
 
 
 def product_page(request, pk):

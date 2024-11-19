@@ -76,11 +76,9 @@
             <div class="col-md-3">
                 <p class="lead">in-season-local-regional produce to your door, every monday: because mondays don't have to suck</p>
                 <div class="list-group">
-                    <a href="#" class="list-group-item">Citrus</a>
-                    <a href="#" class="list-group-item">Berries</a>
-                    <a href="#" class="list-group-item">Stone Fruit</a>
-                    <a href="#" class="list-group-item">Melons</a>
-                    <a href="#" class="list-group-item">Tropical</a>
+                    {% for category in categories %}
+                    <a href="/category/{{ category.id }}" class="list-group-item">{{category.category_name}}</a>
+                    {% endfor %}
                 </div>
             </div>
 
@@ -129,6 +127,10 @@
         <h4 class="pull-right">{{ product.product_cost }}</h4>
         <h4 class="h4">{{ product.product_name }}</h4>
         <p>{{ product.product_descr }}</p>
+        <a href="/product/{{ product.id }}" class="icon-link">
+          Подробнее
+          <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+        </a>
         <button class="btn btn-primary btn-sm">add to basket</button>
     </div>
 </div>
