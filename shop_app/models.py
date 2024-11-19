@@ -39,9 +39,8 @@ class UserCart(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.user_id, self.product
+        return self.product
 
     class Meta:
         verbose_name = "User Cart"
         verbose_name_plural = "User Carts"
-

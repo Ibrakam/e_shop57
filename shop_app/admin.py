@@ -19,4 +19,9 @@ class ProductAdminModel(admin.ModelAdmin):
     ordering = ["-id"]
 
 
-
+@admin.register(UserCart)
+class UserCartAdminModel(admin.ModelAdmin):
+    search_fields = ["id", "user_id"]
+    list_filter = ["created_at"]
+    list_display = ["id", "user_id", "product"]
+    ordering = ["-id"]
