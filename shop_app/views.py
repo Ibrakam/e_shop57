@@ -18,7 +18,6 @@ def category_page(request, pk):
     products = Product.objects.filter(product_category=category)
     # Передаем данные на фронт
     context = {'products': products}
-
     return render(request, 'category.html', context)
 
 
