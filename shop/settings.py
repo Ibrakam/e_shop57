@@ -35,7 +35,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'shop_app'
+    'shop_app',
+    'user'
 ]
 
 MIDDLEWARE = [
@@ -111,7 +112,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 
-# localhost:8000/static/
+# http://127.0.0.1:8000/static/
 STATIC_URL = 'static/'
 # /Users/ibragimkadamzanov/PycharmProjects/e_shop/static
 STATIC_ROOT = BASE_DIR / "static"

@@ -51,21 +51,21 @@
 <h1 class="category-title">{{category.category_name}}</h1>
 
 <div class="products-grid">
+    {% for product in products %}
     <div class="product-card">
-        {% for product in products %}
+
         <img src="{{ product.product_image.url }}" alt="{{ product.product_name }}" class="product-image">
         <div class="product-name">{{ product.product_name }}</div>
         <div class="product-price">{{ product.product_cost }}</div>
         <div class="product-descr">{{ product.product_descr }}</div>
         <a href="/product/{{ product.id }}" class="icon-link">
             Подробнее
-            <svg class="bi">
-                <use xlink:href="#chevron-right"></use>
-            </svg>
+
         </a>
+        <br>
         <button class="btn btn-primary btn-sm">add to basket</button>
-        {% endfor %}
     </div>
+        {% endfor %}
 
 </div>
 </body>

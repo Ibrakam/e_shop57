@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Смартфон Apple iPhone 14</title>
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -84,17 +85,15 @@
 </head>
 <body>
     <div class="product-gallery">
-        <img src="/api/placeholder/500/500" alt="Смартфон" class="main-image">
+        <img src="{{ product.product_image.url }}" alt="{{ product.product_name }}" class="main-image">
     </div>
 
     <div class="product-info">
-        <h1 class="product-title">Смартфон Apple iPhone 14</h1>
-        <div class="product-price">79 999 ₽</div>
+        <h1 class="product-title">{{ product.product_name }}</h1>
+        <div class="product-price">{{ product.product_cost }}</div>
 
         <div class="product-description">
-            Новейший смартфон от Apple с мощным процессором,
-            улучшенной камерой и стильным дизайном. Идеальное
-            устройство для современного пользователя.
+            {{ product.product_descr }}
         </div>
 
         <button class="add-to-cart">Добавить в корзину</button>

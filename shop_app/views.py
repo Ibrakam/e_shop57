@@ -28,3 +28,5 @@ def product_page(request, pk):
     context = {'product': product}
 
     return render(request, 'product.html', context)
+
+

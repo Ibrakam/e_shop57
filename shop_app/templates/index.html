@@ -7,6 +7,7 @@
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
 <link rel='stylesheet' href='https://github.com/BlackrockDigital/startbootstrap-shop-homepage/blob/gh-pages/css/shop-homepage.css'>
 <link rel="stylesheet" href="{% static 'style.css' %}">
+
 </head>
 <body>
 <!-- partial:index.partial.html -->
@@ -129,9 +130,7 @@
         <p>{{ product.product_descr }}</p>
         <a href="/product/{{ product.id }}" class="icon-link">
           Подробнее
-          <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
         </a>
-        <button class="btn btn-primary btn-sm">add to basket</button>
     </div>
 </div>
                 {% endfor %}
@@ -141,6 +140,13 @@
 
      
 
+
+<form method="post">
+    <input name="username">
+    <input name="email">
+    <input name="password1">
+    <input name="password2">
+</form>
 
       
 
