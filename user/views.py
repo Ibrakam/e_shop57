@@ -29,5 +29,25 @@ def register_view(request):
                       {"form": form})
 
 
+# Логика для Login
+def login_view(request):
+    if request.method == "POST":
+        form = UserLoginForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('/')
+        else:
+            form = UserLoginForm()
+            return render(request, "login.html", {"form": form})
+    else:
+        form = UserLoginForm()
+        return render(request, "login.html", {"form": form})
 
 
+def logout_view(request):
+    logout(request)
+    return redirect("about")

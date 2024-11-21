@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>TechStore - Ваш мир электроники</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 50px;
+            background-color: white;
+        }
+        .hero-content {
+            max-width: 500px;
+        }
+        .hero-image img {
+            max-width: 400px;
+            border-radius: 10px;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .featured-products {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 50px;
+            background-color: #f4f4f4;
+        }
+        .product {
+            background-color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .product img {
+            max-width: 200px;
+            height: 200px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>E SHOP</h1>
+        <p>Новейшие технологии для вашей жизни</p>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Откройте мир инноваций</h2>
+            <p>Мы предлагаем лучшие электронные устройства по доступным ценам. Качество, надежность, современность.</p>
+            <a href="/registration" class="cta-button">Зарегистрироваться</a>
+            <a href="/login" class="cta-button">За логиниться</a>
+        </div>
+    </section>
+
+    <section class="featured-products">
+        <div class="product">
+            <h3>Смартфоны</h3>
+            <p>Новейшие модели</p>
+        </div>
+        <div class="product">
+            <h3>Ноутбуки</h3>
+            <p>Мощность и производительность</p>
+        </div>
+        <div class="product">
+            <h3>Планшеты</h3>
+            <p>Компактность и удобство</p>
+        </div>
+    </section>
+</body>
+</html>
