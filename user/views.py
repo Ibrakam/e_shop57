@@ -9,13 +9,24 @@ from user.forms import UserLoginForm, UserRegisterForm
 def register_view(request):
     if request.method == "POST":
         form = UserRegisterForm(request.POST)
+        print(form)
         if form.is_valid():
             form.save()
+            print(form)
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=password)
+            print(user)
             login(request, user)
             return redirect('login')
+        else:
+            form = UserRegisterForm()
+            return render(request, 'registration.html',
+                          {"form": form})
+    else:
+        form = UserRegisterForm()
+        return render(request, 'registration.html',
+                      {"form": form})
 
 
 
