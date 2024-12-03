@@ -1,5 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import Product, CategoryProduct, UserCart
+import telebot
+
+bot = telebot.TeleBot("5605372341:AAHFL3_VEzjxLBSXbxYIuuIJLc-OSMP-1qA")
 
 
 # Create your views here.
@@ -59,5 +62,15 @@ def add_product_to_cart(request, pk):
 def user_cart(request):
     cart = UserCart.objects.filter(user_id=request.user.id).all()  # (UserCart(Product()))
     if request.method == "POST":
+        main_text = 'У вас новый заказ'
 
-    return render(request, "user_cart.html", context={"cart": cart})
+        for i in cart:
+            main_text += (f"\n Товар: {i.product.product_name}"
+                          f"\n Кол-во: {i.product_count}"
+                          f"\n ID-пользователя: {i.user_id}"
+                          f"\n Цена: {i.product.product_cost}")
+        bot.send_message(-4608156312, main_text)
+        cart.delete()
+        return redirect('home')
+    else:
+        return render(request, "user_cart.html", context={"cart": cart})
