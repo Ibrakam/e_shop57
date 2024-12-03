@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Product, CategoryProduct
+from .models import Product, CategoryProduct, UserCart
 
 
 # Create your views here.
@@ -40,3 +40,24 @@ def product_page(request, pk):
     context = {'product': product}
 
     return render(request, 'product.html', context)
+
+
+def add_product_to_cart(request, pk):
+    if request.method == "POST":
+        checker = Product.objects.get(id=pk)
+        if checker.product_count >= int(request.POST.get('pr_count')):
+            UserCart.objects.create(user_id=request.user.id,
+                                    product=checker,
+                                    product_count=int(request.POST.get('pr_count')))
+            print("SUCCESS")
+            return redirect('user_cart')
+        else:
+            print("ERROR")
+            return redirect('home')
+
+
+def user_cart(request):
+    cart = UserCart.objects.filter(user_id=request.user.id).all()  # (UserCart(Product()))
+    if request.method == "POST":
+
+    return render(request, "user_cart.html", context={"cart": cart})
